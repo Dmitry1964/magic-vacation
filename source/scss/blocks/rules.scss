@@ -53,12 +53,14 @@
   }
 }
 
+
 .rules__lead {
   margin-left: 5.8rem;
   max-width: 96rem;
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
+
 
   @media (min-width: $stop-scaling) {
     margin-left: 58px;
