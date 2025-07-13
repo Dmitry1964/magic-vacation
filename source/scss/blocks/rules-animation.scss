@@ -1,0 +1,62 @@
+$animation-duration: 0.4s;
+$delay-stap: 0.15s;
+
+@keyframes show-item-count {
+  60% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes show-item-content {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rules-link {
+  20% {
+    opacity: 1;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.rules__item::before {
+  animation-name: show-item-count;
+  animation-duration: $animation-duration;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.rules__item p {
+  animation-name: show-item-content;
+  animation-duration: $animation-duration;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@for $i from 1 through 10 {
+  .rules__item:nth-child(#{$i})::before {
+    animation-delay: #{$delay-stap * ($i - 1)};
+  }
+
+  .rules__item:nth-child(#{$i}) p {
+    animation-delay: #{$delay-stap * ($i - 1)};
+  }
+
+}
+
+.rules__link {
+  animation-name: rules-link;
+  animation-duration: $animation-duration;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
